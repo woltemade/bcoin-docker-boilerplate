@@ -1,0 +1,1 @@
+https://github.com/bcoin-org/bcoin/blob/master/docs/configuration.md

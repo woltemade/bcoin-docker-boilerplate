@@ -1,0 +1,27 @@
+{
+  "name": "api",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "yarn ./bin/www",
+    "debug": "DEBUG=api:* nodemon --watch routes -L ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1",
+    "bcoin": "^1.0.2",
+    "bclient": "^0.1.7",
+    "module-alias": "^2.1.0",
+    "moment": "^2.24.0",
+    "satoshi-bitcoin": "^1.0.4",
+    "body-parser": "~1.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  },
+  "_moduleAliases": {
+    "@": "lib"
+  }
+}
