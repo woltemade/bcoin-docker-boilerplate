@@ -1,10 +1,10 @@
-#   docker-compose react boilerplate
+#  bcoin docker-compose react boilerplate
 
-## Goal:
+### Goal:
 
 To run a full node and query the bitcoin blockchain
 
-## Usage:
+### Usage:
 
 Setup:
 
@@ -18,17 +18,17 @@ To begin development:
 docker-compose up --build
 ```
 
-## Info
+### Info
 
 The Docker containers are located in the ./docker folder. They spin up an API, APP, bcoin Node respectively
 
 
-## Todo:
+### Todo:
 
 1) Clean environment variables
 2) get nodemon to watch changes in containers 
 3) Remove dependencies on bash scripts by adding that functionality it to the Dockerfiles
 4) Write tests
 5) Test mainnet implementation
-6)
+6) Set docker-compose depends on checks, which will allow the syncing of the blockchain before the API is available.
 

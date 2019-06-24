@@ -7,6 +7,24 @@ volumes:
   data:
 
 services:
+  # bcoin_app:
+  #   container_name: bcoin_app
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/app.Dockerfile
+  #   ports:
+  #     - ${REACT_APP_PORT}:${REACT_APP_PORT}
+  #   volumes:
+  #     - ./app:/app/app
+  #   environment:
+  #     REACT_APP_PORT: ${REACT_APP_PORT}
+  #   depends_on:
+  #     - bcoin_api
+  #   links:
+  #     - bcoin_api
+  #   networks:
+  #     - bitcoin
+
   bcoin_api:
     container_name: bcoin_api
     build:
@@ -15,7 +33,6 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./src:/app/src
       - ./api:/app/api
     environment:
       BCOIN_API_KEY: secretpw
