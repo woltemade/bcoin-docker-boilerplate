@@ -98,3 +98,4 @@ typings/
 config.json
 .env
 *.env
+app/build/

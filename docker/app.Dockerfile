@@ -1,7 +1,7 @@
 FROM node:11.0.0-alpine AS builder
 WORKDIR /app
 COPY ./app .
-RUN yarn run build
+RUN yarn && yarn run build
 
 FROM node:11.0.0-alpine
 RUN yarn global add serve
