@@ -1,6 +1,4 @@
 #   docker-compose react boilerplate
-## Docker containers for a bcoin Node, API and React app for testing the API
-
 
 ## Goal:
 
