@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "yarn ./bin/www",
-    "debug": "DEBUG=api:* nodemon --watch routes -L ./bin/www"
+    "debug": "DEBUG=api:* nodemon --watch ./ -L ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

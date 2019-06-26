@@ -13,11 +13,14 @@ services:
       context: .
       dockerfile: ./docker/app.Dockerfile
     ports:
-      - ${REACT_APP_PORT}:80
+      - ${REACT_APP_PORT}:${REACT_APP_PORT}
     volumes:
       - ./app:/app/app
     environment:
       REACT_APP_PORT: ${REACT_APP_PORT}
+      NODE_ENV: development
+      PORT: 3000
+      CHOKIDAR_USEPOLLING: "true" 
     depends_on:
       - bcoin_api
     links:
@@ -39,6 +42,7 @@ services:
       BCOIN_API_KEY: ${BCOIN_API_KEY}
       BCOIN_NETWORK: ${BCOIN_NETWORK}
       BCOIN_HOST: ${BCOIN_HOST}
+      NODE_ENV: development
     depends_on:
       - bcoin_node
     networks:

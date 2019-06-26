@@ -4,7 +4,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var infoRouter = require('./routes/info');
+var chainRouter = require('./routes/chain/info');
+//var walletRouter = require('./routes/wallet/index');
 
 var app = express();
 
@@ -15,6 +16,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/info', infoRouter);
+app.use('/chain', chainRouter);
+//app.use('/wallet', walletRouter);
 
+//
 module.exports = app;
