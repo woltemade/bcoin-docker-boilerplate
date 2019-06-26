@@ -10,16 +10,17 @@ services:
   bcoin_app:
     container_name: bcoin_app
     build:
-      context: .
-      dockerfile: ./docker/app.Dockerfile
+      context: ./app
+      dockerfile: ./Dockerfile
     ports:
       - ${REACT_APP_PORT}:${REACT_APP_PORT}
+      - 35729:35729
     volumes:
-      - ./app:/app/app
+      - ./app:/app
     environment:
       REACT_APP_PORT: ${REACT_APP_PORT}
       NODE_ENV: development
-      PORT: 3000
+      PORT: ${REACT_APP_PORT}
       CHOKIDAR_USEPOLLING: "true" 
     depends_on:
       - bcoin_api
@@ -31,8 +32,8 @@ services:
   bcoin_api:
     container_name: bcoin_api
     build:
-      context: .
-      dockerfile: ./docker/api.Dockerfile
+      context: ./api
+      dockerfile: ./Dockerfile
     ports:
       - ${API_PORT}:${API_PORT}
     volumes:
@@ -53,7 +54,7 @@ services:
     hostname: localhost
     build:
       context: ./bcoin
-      dockerfile: ../docker/node.Dockerfile
+      dockerfile: ./Dockerfile
     ports:
       - 48444:48444 # bcoin Node
       - 48332:48332 # RPC

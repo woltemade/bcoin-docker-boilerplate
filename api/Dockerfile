@@ -1,7 +1,7 @@
 FROM node:10-alpine
 RUN mkdir /app
 WORKDIR /app
-COPY ./api .
+COPY . .
 RUN adduser -D -g '' appuser
 RUN apk add --no-cache --virtual .gyp python make g++
 RUN yarn install
