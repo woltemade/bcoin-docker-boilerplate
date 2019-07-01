@@ -1,10 +1,11 @@
 FROM node:10-alpine
-RUN mkdir /app
-WORKDIR /app
+
+RUN mkdir -p /usr/src/api
+WORKDIR /usr/src/api
 COPY . .
-RUN adduser -D -g '' appuser
+RUN npm install -g nodemon
 RUN apk add --no-cache --virtual .gyp python make g++
-RUN yarn install
+RUN yarn
 #RUN yarn install --production && yarn cache clean
 EXPOSE ${API_PORT}
-CMD ["yarn", "debug"]
+CMD ["yarn", "dev"]

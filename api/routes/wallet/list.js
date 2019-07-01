@@ -1,18 +1,14 @@
-const {WalletClient} = require('bclient');
-const {Network} = require('bcoin');
-const network = Network.get('regtest');
+require('module-alias/register')
+var express = require('express');
+var router = express.Router();
 
-const walletOptions = {
-  network: network.type,
-  port: network.walletPort,
-  apiKey: 'api-key'
-}
-//
-const walletClient = new WalletClient(walletOptions);
+const initBcoinNode = require('@/bcoin')
 
-(async () => {
-  const result = await walletClient.getWallets();
-  console.log(result);
+router.get('/', async function(req, res, next) {
+    const bcoin = await initBcoinNode()
+    const list = await bcoin.walletClient.getWallets();
+    console.log(list);
+    res.status(200).json(list);
+});
 
-  //
-})();
+module.exports = router;
