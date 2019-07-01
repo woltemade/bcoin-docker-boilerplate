@@ -7,7 +7,6 @@ const initBcoinNode = require('@/bcoin')
 router.get('/', async function(req, res, next) {
     const bcoin = await initBcoinNode()
     const list = await bcoin.walletClient.getWallets();
-    console.log(list);
     res.status(200).json(list);
 });
 

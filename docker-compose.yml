@@ -16,7 +16,8 @@ services:
       - ${REACT_APP_PORT}:${REACT_APP_PORT}
       - 35729:35729
     volumes:
-      - ./app:/app
+      - ./app/src:/app/src
+      - ./app/public:/app/public
     environment:
       REACT_APP_PORT: ${REACT_APP_PORT}
       NODE_ENV: development

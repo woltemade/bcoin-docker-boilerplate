@@ -13,8 +13,7 @@ router.get("/", async function(req, res, next) {
     const watchwallet = bcoin.walletClient.wallet(watchid);
     const result = await watchwallet.importPublic(account, pubkey);
 
-    console.log(result);
-    res.json(result);
+    res.status(200).json(result);
 });
 
 module.exports = router;
