@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node server.js",
+    "start": "node ./src/server.js",
     "dev": "nodemon -L --inspect=0.0.0.0:5858"
   },
   "dependencies": {
@@ -23,6 +23,6 @@
     "nodemon": "^1.19.0"
   },
   "_moduleAliases": {
-    "@": "lib"
+    "@": "src/lib"
   }
 }
