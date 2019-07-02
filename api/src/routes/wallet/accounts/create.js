@@ -8,13 +8,12 @@ router.get("/", async (req, res, next) => {
         let options = {
             name: req.query.name || "account2",
             type: req.query.type || "multisig",
-            passphrase: req.query.passphrase || "secret"
+            passphrase: req.query.passphrase || ""
         };
-        console.log(options);
         const bcoin = await initBcoinNode();
-        const watchwallet = bcoin.walletClient.wallet("account2");
+        const watchwallet = bcoin.walletClient.wallet("wallet2");
 
-        const result = await watchwallet.createAccount(name, options);
+        const result = await watchwallet.createAccount(options.name, options);
 
         if (result) {
             res.status(200).json(result);
@@ -23,8 +22,8 @@ router.get("/", async (req, res, next) => {
         }
         
     } catch(e) {
-        console.log("error in add:", JSON.stringify(e, null, 4));
-        res.status(301).json({e})
+        console.log("error in add:", e, JSON.stringify(e, null, 4));
+        res.status(301).json(e)
     }
 });
 
