@@ -19,6 +19,9 @@ module.exports = async () => {
     apiKey: config.bcoin.apiKey,
   }
 
+  // console.log("walletOptions:", JSON.stringify(walletOptions, null, 4));
+  // console.log("clientOptions:", JSON.stringify(clientOptions, null, 4));
+
   const nodeClient = new NodeClient(clientOptions)
   const walletClient = new WalletClient(walletOptions)
 

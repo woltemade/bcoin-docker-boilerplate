@@ -1,0 +1,22 @@
+//get ip of container
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' bcoin_node
+//172.23.0.2
+//check access
+curl http://x:secretpw@172.23.0.2:48332/
+
+//debug on bcoin_api
+curl http://x:secretpw@bcoin_node:48332/
+curl http://x:secretpw@bcoin_node:48334/wallet/newWallet
+curl http://x:secretpw@bcoin_node:48334/wallet/primary/account
+
+//create wallet
+
+id='newWallet'
+passphrase='secret456'
+witness=false
+watchOnly=false
+accountKey='rpubKBAoFrCN1HzSEDye7jcQaycA8L7MjFGmJD1uuvUZ21d9srAmAxmB7o1tCZRyXmTRuy5ZDQDV6uxtcxfHAadNFtdK7J6RV9QTcHTCEoY5FtQD'
+
+curl http://x:secretpw@bcoin_node:48334/$id \
+  -X PUT \
+  --data '{"witness":'$witness', "passphrase":"'$passphrase'", "watchOnly": '$watchOnly', "accountKey":"'$accountKey'"}'

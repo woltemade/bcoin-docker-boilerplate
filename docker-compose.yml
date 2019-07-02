@@ -41,10 +41,10 @@ services:
     volumes:
       - ./api/src:/usr/src/api/src
     environment:
-      PORT: ${API_PORT}
-      BCOIN_API_KEY: ${BCOIN_API_KEY}
+      PORT: $API_PORT
+      BCOIN_HOST: $BCOIN_HOST
+      BCOIN_API_KEY: $BCOIN_API_KEY
       BCOIN_NETWORK: ${BCOIN_NETWORK}
-      BCOIN_HOST: ${BCOIN_HOST}
       NODE_ENV: development
     depends_on:
       - bcoin_node
