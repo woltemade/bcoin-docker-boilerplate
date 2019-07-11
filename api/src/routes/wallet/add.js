@@ -26,7 +26,7 @@ router.get("/", async (req, res, next) => {
     }
   } catch (e) {
     console.log("error in wallet add:", JSON.stringify(e, null, 4));
-    res.status(301).json({ e });
+    res.status(301).json(e);
   }
 });
 
