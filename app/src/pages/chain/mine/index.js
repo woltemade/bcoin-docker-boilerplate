@@ -3,24 +3,19 @@ import { Layout } from "antd";
 import Header from "../../../components/header"
 const { Content, Footer } = Layout;
 
-export default class Info extends React.Component {
+export default class Mine extends React.Component {
   constructor(props) {
     super(props);
     // Don't call this.setState() here!
     this.state = {
-      data: null
+      data: 'Mine to address page.'
     };
   }
 
-  componentDidMount() {
-    fetch("http://localhost:3001/chain/info")
-      .then(response => response.json())
-      .then(data => this.setState({ data }));
-  }
   render() {
     return (
       <div>
-      <Header title="Chain Info" />
+      <Header title="Mine to address (regtest only)" />
       <Layout>
         <Content style={{ margin: "0 16px" }}>
           <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>

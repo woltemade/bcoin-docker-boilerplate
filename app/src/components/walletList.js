@@ -1,9 +1,9 @@
 import React from "react";
 import { Layout } from "antd";
-import Header from "../../../components/header"
-const { Content, Footer } = Layout;
 
-export default class Info extends React.Component {
+const { Header, Content, Footer } = Layout;
+
+export default class WalletList extends React.Component {
   constructor(props) {
     super(props);
     // Don't call this.setState() here!
@@ -13,15 +13,14 @@ export default class Info extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/chain/info")
+    fetch("http://localhost:3001/wallet/list")
       .then(response => response.json())
       .then(data => this.setState({ data }));
   }
   render() {
     return (
-      <div>
-      <Header title="Chain Info" />
       <Layout>
+        <Header>Wallet List</Header>
         <Content style={{ margin: "0 16px" }}>
           <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>
             <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
@@ -29,7 +28,6 @@ export default class Info extends React.Component {
         </Content>
         <Footer style={{ textAlign: "center" }}>Inv.es ©2019</Footer>
       </Layout>
-      </div>
     );
   }
 }
