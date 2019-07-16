@@ -18,7 +18,6 @@ export default class Mine extends React.Component {
     return (
       <div>
         <Layout>
-          <Content style={{ margin: "0 16px" }}>
             <PageHeader
               title="Mine 100 blocks to address"
               subTitle="Regtest network only."
@@ -31,7 +30,6 @@ export default class Mine extends React.Component {
                 onSearch={value => console.log(value)}
               />
             </div>
-          </Content>
         </Layout>
       </div>
     );
