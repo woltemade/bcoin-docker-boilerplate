@@ -1,7 +1,6 @@
 import React from "react";
-import { Layout } from "antd";
-import Header from "../../../components/header"
-const { Content, Footer } = Layout;
+import { Layout, PageHeader } from "antd";
+const { Content } = Layout;
 
 export default class Info extends React.Component {
   constructor(props) {
@@ -20,14 +19,13 @@ export default class Info extends React.Component {
   render() {
     return (
       <div>
-      <Header title="Chain Info" />
       <Layout>
         <Content style={{ margin: "0 16px" }}>
+        <PageHeader title="Chain Info" subTitle="" />
           <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>
             <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>Inv.es ©2019</Footer>
       </Layout>
       </div>
     );

@@ -1,29 +1,38 @@
 import React from "react";
-import { Layout } from "antd";
-import Header from "../../../components/header"
-const { Content, Footer } = Layout;
+import { Layout, PageHeader, Input } from "antd";
+const { Content } = Layout;
+
+const { Search } = Input;
 
 export default class Mine extends React.Component {
   constructor(props) {
     super(props);
     // Don't call this.setState() here!
     this.state = {
-      data: 'Mine to address page.'
+      data: "Mine to address page."
     };
+    console.log(JSON.stringify(props, null, 4));
   }
 
   render() {
     return (
       <div>
-      <Header title="Mine to address (regtest only)" />
-      <Layout>
-        <Content style={{ margin: "0 16px" }}>
-          <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>
-            <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
-          </div>
-        </Content>
-        <Footer style={{ textAlign: "center" }}>Inv.es ©2019</Footer>
-      </Layout>
+        <Layout>
+          <Content style={{ margin: "0 16px" }}>
+            <PageHeader
+              title="Mine 100 blocks to address"
+              subTitle="Regtest network only."
+            />
+            <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>
+              <Search
+                placeholder="Enter Bitcoin Address:"
+                enterButton="Mine"
+                size="large"
+                onSearch={value => console.log(value)}
+              />
+            </div>
+          </Content>
+        </Layout>
       </div>
     );
   }

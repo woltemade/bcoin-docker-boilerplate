@@ -1,7 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Footer from "../components/footer";
+
+import Header from "../components/header";
+
 import ChainInfo from "./chain/info";
 import Mine from "./chain/mine";
+import Wallets from "./wallet/walletList";
 
 import { Layout, Menu, Icon } from "antd";
 const { Sider } = Layout;
@@ -12,13 +17,23 @@ export default class Main extends React.Component {
     super(props);
     // Don't call this.setState() here!
     this.state = {
-      collapsed: false
+      collapsed: false,
+      pageTitle: "Herald se pageman"
     };
   }
-
+  toggle = () => {
+    this.setState({
+      collapsed: !this.state.collapsed
+    });
+  };
+  setTitle = title => {
+    this.setState({
+      pageTitle: title
+    });
+  };
   onCollapse = collapsed => {
     console.log(collapsed);
-    this.setState({ collapsed });
+    this.setState({ collapsed: !this.state.collapsed });
   };
 
   render(props) {
@@ -30,6 +45,7 @@ export default class Main extends React.Component {
               collapsible
               collapsed={this.state.collapsed}
               onCollapse={this.onCollapse}
+              trigger={null}
             >
               <div className="logo" />
               <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
@@ -58,19 +74,26 @@ export default class Main extends React.Component {
                     </span>
                   }
                 >
-                  <Menu.Item key="6">View Wallets</Menu.Item>
+                  <Menu.Item key="6">
+                    <Link to="/wallets">View Wallets</Link>
+                  </Menu.Item>
                   <Menu.Item key="7">Create Wallets</Menu.Item>
                   <Menu.Item key="8">Add Watch Wallet</Menu.Item>
                 </SubMenu>
-                {/* <Menu.Item key="9">
-                <Icon type="file" />
-                <span>File</span>
-              </Menu.Item> */}
               </Menu>
             </Sider>
-            <Route path="/mine" component={Mine} />
-            <Route path="/info" component={ChainInfo} />
+            <Layout>
+              <Header
+                collapsed={this.state.collapsed}
+                toggle={this.toggle}
+                pageTitle={this.state.pageTitle}
+              />
+              <Route path="/mine" component={Mine} />
+              <Route path="/info" component={ChainInfo} />
+              <Route path="/wallets" component={Wallets} />
+            </Layout>
           </Layout>
+          <Footer />
         </Router>
       </div>
     );

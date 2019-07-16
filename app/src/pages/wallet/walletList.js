@@ -1,7 +1,5 @@
 import React from "react";
-import { Layout } from "antd";
-
-const { Header, Content, Footer } = Layout;
+import { Layout, PageHeader } from "antd";
 
 export default class WalletList extends React.Component {
   constructor(props) {
@@ -20,13 +18,10 @@ export default class WalletList extends React.Component {
   render() {
     return (
       <Layout>
-        <Header>Wallet List</Header>
-        <Content style={{ margin: "0 16px" }}>
+        <PageHeader title="List of wallets" subTitle="" />
           <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>
             <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
           </div>
-        </Content>
-        <Footer style={{ textAlign: "center" }}>Inv.es ©2019</Footer>
       </Layout>
     );
   }
