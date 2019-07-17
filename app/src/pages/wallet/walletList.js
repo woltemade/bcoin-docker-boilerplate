@@ -97,7 +97,7 @@ export default class WalletList extends React.Component {
                 placeholder="Select a wallet"
                 notFoundContent={fetching ? <Spin size="small" /> : null}
                 filterOption={false}
-                //onSearch={this.fetchWallets}
+                size="large"
                 onChange={this.handleChange}
                 style={{ width: "100%" }}
               >
@@ -125,7 +125,7 @@ export default class WalletList extends React.Component {
                 placeholder="Select an account"
                 notFoundContent={fetching ? <Spin size="small" /> : null}
                 filterOption={false}
-                //onSearch={this.fetchWalletAccounts}
+                size="large"
                 onSelect={this.handleAccountChange}
                 style={{ width: "100%" }}
               >

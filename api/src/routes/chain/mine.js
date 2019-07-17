@@ -5,12 +5,13 @@ const initBcoinNode = require('@/bcoin')
 
 router.get('/', async function(req, res, next) {
     const options = {
-        numBlocks: req.query.numBlocks || 50,
-        address: req.query.numBlocks || 'coinbaseaddress'
+        blocks: parseInt(req.query.blocks) || 50,
+        address: req.query.address || 'coinbaseaddress'
     }
     try {
+        console.log('mine to address:', options.blocks, options.address);
         const bcoin = await initBcoinNode()
-        const result = await bcoin.nodeClient.execute('generatetoaddress', [ options.numblocks, options.address ]);
+        const result = await bcoin.nodeClient.execute('generatetoaddress', [ options.blocks, options.address ]);
         res.status(200).json(result);
     }
     catch(e) {
