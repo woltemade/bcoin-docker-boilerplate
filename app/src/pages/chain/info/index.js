@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout, PageHeader } from "antd";
-const { Content } = Layout;
+// const { Content } = Layout;
 
 export default class Info extends React.Component {
   constructor(props) {

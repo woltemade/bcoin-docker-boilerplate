@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout, PageHeader, Input } from "antd";
-const { Content } = Layout;
+// const { Content } = Layout;
 
 const { Search } = Input;
 
