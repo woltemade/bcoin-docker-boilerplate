@@ -8,6 +8,7 @@ import ChainInfo from "./chain/info";
 import Mine from "./chain/mine";
 import WalletList from "./wallet/walletList";
 import CreateWallet from "./wallet/create";
+import ImportPublicKey from "./wallet/add";
 
 import { Layout, Menu, Icon } from "antd";
 const { Sider } = Layout;
@@ -79,7 +80,7 @@ export default class Main extends React.Component {
                     <Link to="/wallets">View Wallets</Link>
                   </Menu.Item>
                   <Menu.Item key="7"><Link to="/wallet/create">Create Wallet</Link></Menu.Item>
-                  <Menu.Item key="8">Add Watch Wallet</Menu.Item>
+                  <Menu.Item key="8"><Link to="/wallet/import">Import Public Key</Link></Menu.Item>
                 </SubMenu>
               </Menu>
             </Sider>
@@ -93,6 +94,7 @@ export default class Main extends React.Component {
               <Route path="/info" component={ChainInfo} />
               <Route path="/wallets" component={WalletList} />
               <Route path="/wallet/create" component={CreateWallet} />
+              <Route path="/wallet/import" component={ImportPublicKey} />
             </Layout>
           </Layout>
           <Footer />

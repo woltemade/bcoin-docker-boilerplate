@@ -49,7 +49,6 @@ export default class Mine extends React.Component {
               <Col span={2}>
                 <Select
                   defaultValue="50"
-                //   style={{ width: 120 }}
                   onChange={this.handleBlocksChange}
                   size="large"
                 >

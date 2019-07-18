@@ -8,7 +8,8 @@ volumes:
 
 services:
   bcoin_app:
-    container_name: bcoin_app
+    container_name: bcoin_app_${BCOIN_NETWORK}
+    image: bcoin_app_${BCOIN_NETWORK}
     build:
       context: ./app
       dockerfile: ./Dockerfile
@@ -31,7 +32,8 @@ services:
       - bitcoin
 
   bcoin_api:
-    container_name: bcoin_api
+    container_name: bcoin_api_${BCOIN_NETWORK}
+    image: bcoin_api_${BCOIN_NETWORK}
     build:
       context: ./api
       dockerfile: ./Dockerfile
@@ -52,7 +54,8 @@ services:
       - bitcoin
 
   bcoin_node:
-    container_name: bcoin_node
+    container_name: bcoin_node_${BCOIN_NETWORK}
+    image: bcoin_node_${BCOIN_NETWORK}
     hostname: localhost
     build:
       context: ./bcoin

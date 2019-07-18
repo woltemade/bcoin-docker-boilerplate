@@ -3,17 +3,24 @@ import { Layout, PageHeader, Row, Col, Input } from "antd";
 
 const { Search } = Input;
 
-export default class WalletList extends React.Component {
+export default class ImportPublicKey extends React.Component {
   constructor(props) {
     super(props);
     // Don't call this.setState() here!
     this.state = {
-      data: []
+      data: [],
+      walletId: "",
+      accountId: "",
+      publicKey: "",
+      passPhrase: ""
     };
   }
 
-  createWallet(walletId) {
-    fetch(`http://localhost:3001/wallet/create?walletId=${walletId}`)
+  addPublicKey() {
+    const { walletId, accountId, passPhrase, publicKey } = this.state;
+    fetch(
+      `http://localhost:3001/wallet/create?walletId=${walletId}&accountId=${accountId}&passPhrase=${passPhrase}&pubKey=${publicKey}`
+    )
       .then(response => response.json())
       .then(data => this.setState({ data }));
   }
@@ -30,7 +37,7 @@ export default class WalletList extends React.Component {
 
     return (
       <Layout>
-        <PageHeader title="Create a new wallet" subTitle="" />
+        <PageHeader title="Import Wallet from Public Key" subTitle="" />
         <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>
           <Row>
             <Col span={12}>
@@ -38,7 +45,7 @@ export default class WalletList extends React.Component {
                 placeholder="Enter Wallet Id:"
                 enterButton="Create"
                 size="large"
-                onSearch={value => this.createWallet(value)}
+                onSearch={value => this.addPublicKey(value)}
               />
             </Col>
           </Row>

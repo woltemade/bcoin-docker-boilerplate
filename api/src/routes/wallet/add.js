@@ -5,13 +5,16 @@ const initBcoinNode = require("@/bcoin");
 
 router.get("/", async (req, res, next) => {
   try {
+    if(!req.query.walletId || !req.query.pubKey) {
+      throw new error('walletId, or Public key missing.')
+    }
     let options = {
-      walletId: req.query.walletId || "account2",
+      walletId: req.query.walletId,
       accountId: req.query.accountId || "default",
-      pubKey:
-        pubKey ||
-        "0215a9110e2a9b293c332c28d69f88081aa2a949fde67e35a13fbe19410994ffd9"
+      passphrase: req.query.passphrase || '',
+      pubKey: req.query.pubKey
     };
+
     const bcoin = await initBcoinNode();
     const watchwallet = bcoin.walletClient.wallet(options.walletId);
     const result = await watchwallet.importPublic(
