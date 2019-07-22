@@ -39,7 +39,7 @@ The Docker containers are located in the ./docker folder. They spin up an API, A
 
 7) Test mainnet implementation
 
-8) Make docker-compose depend on API ready checks, which will allow the syncing of the blockchain before the API is available.
+8) Make the react app depend on API ready checks, which will allow the syncing of the blockchain before the API and App functionality is available.
 
 9) Remove dependencies on bash scripts by adding that functionality it to the Dockerfiles
 

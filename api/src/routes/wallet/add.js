@@ -14,9 +14,10 @@ router.get("/", async (req, res, next) => {
       passphrase: req.query.passphrase || '',
       pubKey: req.query.pubKey
     };
-
+    console.log(JSON.stringify(options, null, 4));
     const bcoin = await initBcoinNode();
     const watchwallet = bcoin.walletClient.wallet(options.walletId);
+    console.log(JSON.stringify(watchwallet, null, 4))
     const result = await watchwallet.importPublic(
       options.accountId,
       options.pubKey

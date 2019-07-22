@@ -16,13 +16,24 @@ export default class ImportPublicKey extends React.Component {
     };
   }
 
-  addPublicKey() {
-    const { walletId, accountId, passPhrase, publicKey } = this.state;
+  handleChange = walletId => {
+    this.setState({
+      walletId
+    });
+  };
+  addPublicKey(publicKey) {
+    this.setState({
+      publicKey
+    });
+    const { walletId, accountId, passPhrase } = this.state;
+    console.log('front end:', walletId, accountId, passPhrase, publicKey)
+    console.log('fetching', `http://localhost:3001/wallet/add?walletId=${walletId}&accountId=${accountId}&passPhrase=${passPhrase}&pubKey=${publicKey}`)
     fetch(
-      `http://localhost:3001/wallet/create?walletId=${walletId}&accountId=${accountId}&passPhrase=${passPhrase}&pubKey=${publicKey}`
+      `http://localhost:3001/wallet/add?walletId=${walletId}&accountId=${accountId}&passPhrase=${passPhrase}&pubKey=${publicKey}`
     )
       .then(response => response.json())
-      .then(data => this.setState({ data }));
+      .then(data => this.setState({ data }))
+      .catch(err => console.log('error in fetch:', err));
   }
   isObject(value) {
     return value && typeof value === "object" && value.constructor === Object;
@@ -41,8 +52,13 @@ export default class ImportPublicKey extends React.Component {
         <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>
           <Row>
             <Col span={12}>
+              <Input placeholder="Wallet Id" size="large" onChange={e => this.handleChange(e.target.value)}/>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={12}>
               <Search
-                placeholder="Enter Wallet Id:"
+                placeholder="Enter Public Id:"
                 enterButton="Create"
                 size="large"
                 onSearch={value => this.addPublicKey(value)}

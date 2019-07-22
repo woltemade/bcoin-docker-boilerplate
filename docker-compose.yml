@@ -8,7 +8,7 @@ volumes:
 
 services:
   bcoin_app:
-    container_name: bcoin_app_${BCOIN_NETWORK}
+    container_name: bcoin_app
     image: bcoin_app_${BCOIN_NETWORK}
     build:
       context: ./app
@@ -32,7 +32,7 @@ services:
       - bitcoin
 
   bcoin_api:
-    container_name: bcoin_api_${BCOIN_NETWORK}
+    container_name: bcoin_api
     image: bcoin_api_${BCOIN_NETWORK}
     build:
       context: ./api
@@ -54,7 +54,7 @@ services:
       - bitcoin
 
   bcoin_node:
-    container_name: bcoin_node_${BCOIN_NETWORK}
+    container_name: bcoin_node
     image: bcoin_node_${BCOIN_NETWORK}
     hostname: localhost
     build:
