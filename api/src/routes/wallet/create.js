@@ -8,10 +8,10 @@ router.get("/", async (req, res, next) => {
   try {
     let options = {
         walletId: req.query.walletId,
-        passphrase: req.query.passphrase || '',
+        // passphrase: req.query.passphrase || '',
         // witness: req.query.witness || false,
         watchOnly: req.query.watchOnly || true,
-        // accountKey: req.query.accountKey || 'rpubKBAoFrCN1HzSEDye7jcQaycA8L7MjFGmJD1uuvUZ21d9srAmAxmB7o1tCZRyXmTRuy5ZDQDV6uxtcxfHAadNFtdK7J6RV9QTcHTCEoY5FtQD'
+        // accountKey: req.query.accountKey || 'rpubKBBGCWqgVn4RRVpJTDUvTJnFHYiQuoUNy7s6W57U36KJ3r5inJp7iVRJZHvkFjbgfaGVs9fkvcCQS5ZMmc7BYFCrkADgmGKDCsjYK1vGmoFw'
     };
     const bcoin = await initBcoinNode();
     const result = await bcoin.walletClient.createWallet(options.walletId, options);

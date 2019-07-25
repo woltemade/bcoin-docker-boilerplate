@@ -1,0 +1,72 @@
+[
+  {
+    "walletId": "user-1",
+    "accounts": [
+      {
+        "accountId": "account-1",
+        "publicKey": "rpubKBBGCWqgVn4RRVpJTDUvTJnFHYiQuoUNy7s6W57U36KJ3r5inJp7iVRJZHvkFjbgfaGVs9fkvcCQS5ZMmc7BYFCrkADgmGKDCsjYK1vGmoFw"
+      },
+      {
+        "accountId": "account-2",
+        "publicKey": "rpubKBBGbcYSSixFmszGnpX8nkNkbNSy9djtL3PjNJmW7Aiwj6j6bcjZ32pkZt7v2FBr5uMFEJrnebEPRqoxTbC4bFL4ecc7Q37MyfgmCujDnJhq"
+      },
+      {
+        "accountId": "account-3",
+        "publicKey": "rpubKBB9cjGhRWwxVYwTrVV8bYFQQgy7TiUKm9UWqcVXbBXNGFkCUcZEfArkEkwgrEYmNoXeWuzyc5fzwiKQmTcUNMkSFA9EjwoWEKFziA5cktSV"
+      }
+    ]
+  },
+  {
+    "walletId": "user-2",
+    "accounts": [
+      {
+        "accountId": "account-1",
+        "publicKey": "rpubKBB8dy6cxxhjM2z7bcSg1X88mBG9vJpYuQJfnSD12VRUZNxrUxWHqiJikBvMSQfYRE4w3TbH7RNtoah9BhDon17q6uYTmW6UZim7dQPFQteP"
+      },
+      {
+        "accountId": "account-2",
+        "publicKey": "rpubKBAXEmGJLUXZVQTu8SB21Z8UT6nmbS6c8amviZgazDfHd1nqHrPt4WHw4x6jPutr24B45NQSUzVFYeSQvLAWpNj4rXB4CbZHic7vpwP2qkKp"
+      }
+    ]
+  },
+  {
+    "walletId": "user-3",
+    "accounts": [
+      {
+        "accountId": "account-1",
+        "publicKey": "rpubKBAHh76L3ArxTeBmv9WfJkkfWNcgAfnaC8gxTcw7xmz9ppEck7N6CLJVB3GjNCenzwbdSKWJjvF22Fu55wuSqnfAkTRZYiZmKK1GV2271qy1"
+      },
+      {
+        "accountId": "account-1",
+        "publicKey": "rpubKBBQiYYF4YiYQe4xx4hs8UUqF4TyU2zQifUGc3YNMGSJh9R6YTy21J2yD7RPtZibyYuEJ7FVfJ8qojpFW19jySeA9xNenCpscqfh97NjkzCJ"
+      }
+    ]
+  },
+  {
+    "walletId": "user-4",
+    "accounts": [
+      {
+        "accountId": "account-1",
+        "publicKey": "rpubKBBfiShxzz7tcNLBWgcyTd7to3DDENMXH5zF4yrs9UJ2uttykB9GSUBLh3uviJ9MPgj7WqkfEkmSsDhaF1G3eDBznuyFRYKynqXwNbBP3cQg"
+      }
+    ]
+  },
+  {
+    "walletId": "user-5",
+    "accounts": [
+      {
+        "accountId": "account-1",
+        "publicKey": "rpubKBAvuL7iQwV9ZbREQ5vji24tQGy9g8VbATJ2CeNrn7FJwN6L64FJRZu8LyX1bHuL1oE1PTSnKACoCoA8GiKU2NqgEKJagCH1PnytaVU8AVXC"
+      }
+    ]
+  },
+  {
+    "walletId": "user-6",
+    "accounts": [
+      {
+        "accountId": "account-1",
+        "publicKey": "rpubKBAuhsyb8bj7i2EijmtUgERzFW8Y8ffxnPRuA4CfVRsydo9F4HiSamzHRjscay28Unu6YJyohWNJihsfAJXMXQwKJsQmQSVR2RdAv2rPvvc7"
+      }
+    ]
+  }
+]

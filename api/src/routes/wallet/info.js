@@ -5,7 +5,10 @@ const initBcoinNode = require('@/bcoin')
 
 router.get('/', async function(req, res, next) {
     const bcoin = await initBcoinNode()
-    const walletId = req.query.walletId || 'primary';
+    let walletId = req.query.walletId || 'primary2';
+    if (walletId === 'watchOn') {
+        walletId = 'watchOnly'
+    }
 
     const wallet = await bcoin.walletClient.wallet(walletId);
     const walletIfno = await wallet.getInfo();

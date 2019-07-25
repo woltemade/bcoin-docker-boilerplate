@@ -1,0 +1,34 @@
+{
+    "version": "v1.0.2",
+    "network": "regtest",
+    "chain": {
+      "height": 32319,
+      "tip": "1b6021902bb7f498722046ad3732f5891c9ffcba12ae4b9b9239a8a518a95dd5",
+      "progress": 1
+    },
+    "pool": {
+      "host": "197.245.153.125",
+      "port": 48444,
+      "agent": "/bcoin:v1.0.2/",
+      "services": "1001",
+      "outbound": 1,
+      "inbound": 1
+    },
+    "mempool": {
+      "tx": 0,
+      "size": 0
+    },
+    "time": {
+      "uptime": 1956,
+      "system": 1564051133,
+      "adjusted": 1564051133,
+      "offset": 0
+    },
+    "memory": {
+      "total": 85,
+      "jsHeap": 23,
+      "jsHeapTotal": 29,
+      "nativeHeap": 56,
+      "external": 9
+    }
+  }

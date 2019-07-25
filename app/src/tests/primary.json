@@ -1,0 +1,25 @@
+{
+    "name": "default",
+    "initialized": true,
+    "witness": false,
+    "watchOnly": false,
+    "type": "pubkeyhash",
+    "m": 1,
+    "n": 1,
+    "accountIndex": 0,
+    "receiveDepth": 2,
+    "changeDepth": 1,
+    "nestedDepth": 0,
+    "lookahead": 10,
+    "receiveAddress": "RP7MUYrbS5aB8DKhw6ZR8m5UdhprjN23Vt",
+    "changeAddress": "RRJ4Q5x9JeBv52K1R8k7Mxyiha7KsbWMKX",
+    "nestedAddress": null,
+    "accountKey": "rpubKBBFgb7Uu7pSpPG2zxj5ZVhR6c8ko5kBCD2wyXoYj2uAq8nTCMgrH4H6SryLNmwqENb6bPYbyk6v4sm67YbpYbSedYkMhBy3Bfa3Kc8ojB3a",
+    "keys": [],
+    "balance": {
+      "tx": 50,
+      "coin": 50,
+      "unconfirmed": 15625000000,
+      "confirmed": 15625000000
+    }
+  }
