@@ -3,9 +3,13 @@
 # copy the node and wallet config files
 cp -R /code/conf/. ~/.bcoin/
 
-# Run the mine script in the background
-echo 'Launching mine'
-/code/scripts/mine.sh &
+# Run the mine script in the background regtest only
+if $BCOIN_NETWORK = 'regtest'; then
+    echo 'Launching mine on regtest'
+    /code/scripts/mine.sh
+fi
+
 
 # Start the bcoin node
-node /code/bcoin/bin/node --network=regtest
+echo 'Start bcoin node on ' $BCOIN_NETWORK
+node /code/bcoin/bin/node --network=$BCOIN_NETWORK

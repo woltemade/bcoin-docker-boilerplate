@@ -22,7 +22,7 @@ export default class Main extends React.Component {
       collapsed: false,
       pageTitle: '',
       chainNetwork: 'node',
-      chainProgress: 0.56666
+      chainProgress: 0.0001
     };
   }
 
@@ -132,7 +132,7 @@ export default class Main extends React.Component {
     );
   }
   componentDidMount() {
-    this.timer = setInterval(() => this.getChainState(), 5000);
+    // this.timer = setInterval(() => this.getChainState(), 5000);
   }
 
   componentWillUnmount() {
@@ -145,7 +145,7 @@ export default class Main extends React.Component {
     } else {
       fetch("http://localhost:3001/chain/info")
         .then(response => response.json())
-        .then(data => this.setState({ chainProgress: data.chain.progress, chainNetwork: `[$(data.network}] node` }));
+        .then(data => this.setState({ chainProgress: data.chain.progress, chainNetwork: `[${data.network}] node` }));
     }
   }
   chainIsInReadyState() {
@@ -161,7 +161,7 @@ export default class Main extends React.Component {
     if (this.chainIsInReadyState()) {
       page = this.homePage();
     } else {
-      page = this.busySyncingPage();
+      page = this.homePage(); //this.busySyncingPage();
     }
 
     return (

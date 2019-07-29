@@ -2,7 +2,8 @@
 FROM node:8-slim
 
 ENV BCOIN_REPO=https://github.com/bcoin-org/bcoin.git \
-    BCOIN_DIR=/code/bcoin 
+    BCOIN_DIR=/code/bcoin \
+    BCOIN_NETWORK=testnet
 
 RUN apt-get update \
   && apt-get install -y build-essential git make python \
@@ -18,10 +19,13 @@ RUN apt-get update \
 WORKDIR $BCOIN_DIR
 
 COPY ./scripts/ /code/scripts
-ADD ./regtest/bcoin.conf /code/conf/regtest/bcoin.conf
-ADD ./regtest/wallet.conf /code/conf/regtest/wallet.conf
+# ADD ./regtest/bcoin.conf /code/conf/regtest/bcoin.conf
+# ADD ./regtest/wallet.conf /code/conf/regtest/wallet.conf
+ADD ./testnet/bcoin.conf /code/conf/testnet/bcoin.conf
+ADD ./testnet/wallet.conf /code/conf/testnet/wallet.conf
 
 RUN chmod +x /code/scripts/launch.sh
 RUN chmod +x /code/scripts/mine.sh
+RUN chmod +x /code/scripts/testenv.sh
 
 CMD ["/code/scripts/launch.sh"]

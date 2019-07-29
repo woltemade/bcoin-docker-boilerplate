@@ -61,6 +61,9 @@ services:
       context: ./bcoin
       dockerfile: ./Dockerfile
     ports:
+      - 18334:18334
+      - 18332:18332
+      - 18444:18444
       - 48444:48444 # bcoin Node
       - 48332:48332 # RPC
       - 48334:48334 # Wallet

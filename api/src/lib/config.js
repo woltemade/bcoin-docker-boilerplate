@@ -1,7 +1,7 @@
 module.exports = {
   bcoin: {
     apiKey: process.env.BCOIN_API_KEY || 'secretpw',
-    network: process.env.BCOIN_NETWORK || 'regtest',
+    network: process.env.BCOIN_NETWORK || 'testnet',
     host: process.env.BCOIN_HOST || 'bcoin_node',
 
     rescan: process.env.RESCAN === 'true'
