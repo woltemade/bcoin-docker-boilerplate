@@ -18,10 +18,7 @@ RUN apt-get update \
 WORKDIR $BCOIN_DIR
 
 COPY ./scripts/ /code/scripts
-# ADD ./regtest/bcoin.conf /code/conf/regtest/bcoin.conf
-# ADD ./regtest/wallet.conf /code/conf/regtest/wallet.conf
-ADD ./testnet/bcoin.conf /code/conf/testnet/bcoin.conf
-ADD ./testnet/wallet.conf /code/conf/testnet/wallet.conf
+ADD ./conf/ /code/conf/
 
 RUN chmod +x /code/scripts/launch.sh
 RUN chmod +x /code/scripts/mine.sh
