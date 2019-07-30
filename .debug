@@ -96,7 +96,7 @@ watchid='watchonly1'
 account='default'
 pubkey='0215a9110e2a9b293c332c28d69f88081aa2a949fde67e35a13fbe19410994ffd9'
 
-
+curl http://x:secretpw@localhost:18332/
 curl http://x:secretpw@bcoin_node:48332/$watchid/import \
   -X POST \
   --data '{"account":"'$account'", "publicKey":"'$pubkey'"}'
@@ -107,3 +107,6 @@ curl http://x:secretpw@bcoin_node:48332/$watchid/import \
 
 rpubKBBFgb7Uu7pSpPG2zxj5ZVhR6c8ko5kBCD2wyXoYj2uAq8nTCMgrH4H6SryLNmwqENb6bPYbyk6v4sm57YbpYbSedYkMhBy3Bfa3Kc8ojB3a
 0215a9110e2a9b293c332c28d69f88081aa2a949fde67e35a13fbe19410994ffd9
+
+
+BCOIN_URI=http://localhost:18332 BCOIN_API_KEY=secretpw BCOIN_NETWORK=testnet ./bwallet get --id=primary

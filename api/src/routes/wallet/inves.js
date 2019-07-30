@@ -12,11 +12,12 @@ router.get('/', async function(req, res, next) {
     const bcoin = await initBcoinNode()
     let errMessage = 'No error';
     const walletId = req.query.walletId || 'wa'; // inves user id 
-    const accountId = req.query.accountId; // user can have more than one wallet, name must be unique
+    const accountId = req.query.accountId || 'acc'; // user can have more than one wallet, name must be unique
     const publicKey = req.query.publicKey || 'te'; //we need to check that it is not already added
     // 1. check that all values are supplied
+    console.log(`accountid: ${accountId}`)
     if (emptyVal(accountId)) {
-        errMessage = 'AccountId must be supplied.';
+        errMessage = `AccountId must be supplied: ${accountId}`;
         res.status(301).json({walletIfno: errMessage});
     }
     if (emptyVal(walletId)) {
@@ -32,7 +33,7 @@ router.get('/', async function(req, res, next) {
     // 4. Check that account id is not already in use.
     // const wallet = await bcoin.walletClient.wallet(walletId);
     // const walletIfno = await wallet.getInfo();
-    res.status(200).json({walletIfno: errMessage});
+    res.status(200).json({walletIfno: 'adding wallet....'});
 });
 
 module.exports = router;

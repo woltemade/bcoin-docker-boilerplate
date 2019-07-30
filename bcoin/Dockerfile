@@ -2,8 +2,7 @@
 FROM node:8-slim
 
 ENV BCOIN_REPO=https://github.com/bcoin-org/bcoin.git \
-    BCOIN_DIR=/code/bcoin \
-    BCOIN_NETWORK=testnet
+    BCOIN_DIR=/code/bcoin
 
 RUN apt-get update \
   && apt-get install -y build-essential git make python \

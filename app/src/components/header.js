@@ -12,7 +12,7 @@ const myHeader = props => (
         type={props.collapsed ? "menu-unfold" : "menu-fold"}
         onClick={props.toggle}
       />
-      Bcoin Test App
+      Bcoin Test App [{process.env.REACT_APP_BCOIN_NETWORK}]
     </h1>
   </Header>
 );

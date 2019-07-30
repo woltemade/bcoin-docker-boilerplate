@@ -5,24 +5,27 @@ import Footer from "../components/footer";
 import Header from "../components/header";
 
 import ChainInfo from "./chain/info";
+import Inves from "./wallet/inves";
+
 import Mine from "./chain/mine";
 import WalletList from "./wallet/walletList";
 import CreateWallet from "./wallet/create";
 import ImportPublicKey from "./wallet/add";
-import Inves from "./wallet/inves";
 
 import { Layout, Menu, Icon, Progress, Row, Col } from "antd";
 const { Sider } = Layout;
 const { SubMenu } = Menu;
+
 export default class Main extends React.Component {
   constructor(props) {
     super(props);
     // Don't call this.setState() here!
     this.state = {
       collapsed: false,
-      pageTitle: '',
-      chainNetwork: 'node',
-      chainProgress: 0.0001
+      pageTitle: "",
+      chainNetwork: "node",
+      chainProgress: 0.0001,
+      network: process.env.REACT_APP_BCOIN_NETWORK
     };
   }
 
@@ -49,7 +52,7 @@ export default class Main extends React.Component {
         <Row>
           <Col span={4} />
           <Col span={16}>
-            <h2>Blockchain { this.state.chainNetwork } is busy syncing...</h2>
+            <h2>Blockchain {this.state.chainNetwork} is busy syncing...</h2>
             <Progress
               strokeColor={{
                 "0%": "#108ee9",
@@ -64,6 +67,12 @@ export default class Main extends React.Component {
     );
   }
 
+  isRegtest() {
+    if (this.state.network === "regtest") {
+      return true;
+    }
+    return false;
+  }
   homePage() {
     return (
       <Layout>
@@ -87,9 +96,11 @@ export default class Main extends React.Component {
               <Menu.Item key="3">
                 <Link to="/info">Chain Info</Link>
               </Menu.Item>
-              <Menu.Item key="4">
-                <Link to="/mine">Mine</Link>
-              </Menu.Item>
+              {this.isRegtest() && (
+                <Menu.Item key="4">
+                  <Link to="/mine">Mine</Link>
+                </Menu.Item>
+              )}
             </SubMenu>
             <SubMenu
               key="sub2"
@@ -103,12 +114,16 @@ export default class Main extends React.Component {
               <Menu.Item key="6">
                 <Link to="/wallets">View Wallets</Link>
               </Menu.Item>
-              <Menu.Item key="7">
-                <Link to="/wallet/create">Create Wallet</Link>
-              </Menu.Item>
-              <Menu.Item key="8">
-                <Link to="/wallet/import">Import Public Key</Link>
-              </Menu.Item>
+              {this.isRegtest() && (
+                <Menu.Item key="7">
+                  <Link to="/wallet/create">Create Wallet</Link>
+                </Menu.Item>
+              )}
+              {this.isRegtest() && (
+                <Menu.Item key="8">
+                  <Link to="/wallet/import">Import Public Key</Link>
+                </Menu.Item>
+              )}
               <Menu.Item key="9">
                 <Link to="/wallet/inves">Inves Create Wallet</Link>
               </Menu.Item>
@@ -120,6 +135,7 @@ export default class Main extends React.Component {
             collapsed={this.state.collapsed}
             toggle={this.toggle}
             pageTitle={this.state.pageTitle}
+            network={this.state.network}
           />
           <Route path="/mine" component={Mine} />
           <Route path="/info" component={ChainInfo} />
@@ -145,7 +161,12 @@ export default class Main extends React.Component {
     } else {
       fetch("http://localhost:3001/chain/info")
         .then(response => response.json())
-        .then(data => this.setState({ chainProgress: data.chain.progress, chainNetwork: `[${data.network}] node` }));
+        .then(data =>
+          this.setState({
+            chainProgress: data.chain.progress,
+            chainNetwork: `[${data.network}] node`
+          })
+        );
     }
   }
   chainIsInReadyState() {

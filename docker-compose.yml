@@ -21,9 +21,10 @@ services:
       - ./app/public:/app/public
     environment:
       REACT_APP_PORT: ${REACT_APP_PORT}
-      NODE_ENV: development
+      NODE_ENV: ${NODE_ENVIRONMENT}
       PORT: ${REACT_APP_PORT}
       CHOKIDAR_USEPOLLING: "true" 
+      REACT_APP_BCOIN_NETWORK: ${BCOIN_NETWORK}
     depends_on:
       - bcoin_api
     links:
@@ -43,11 +44,11 @@ services:
     volumes:
       - ./api/src:/usr/src/api/src
     environment:
-      PORT: $API_PORT
-      BCOIN_HOST: $BCOIN_HOST
-      BCOIN_API_KEY: $BCOIN_API_KEY
+      PORT: ${API_PORT}
+      BCOIN_HOST: ${BCOIN_HOST}
+      BCOIN_API_KEY: ${BCOIN_API_KEY}
       BCOIN_NETWORK: ${BCOIN_NETWORK}
-      NODE_ENV: development
+      NODE_ENV: ${NODE_ENVIRONMENT}
     depends_on:
       - bcoin_node
     networks:
@@ -67,6 +68,8 @@ services:
       - 48444:48444 # bcoin Node
       - 48332:48332 # RPC
       - 48334:48334 # Wallet
+    environment:
+      BCOIN_NETWORK: ${BCOIN_NETWORK}
     logging:
       driver: none
     networks:
